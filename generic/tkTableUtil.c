@@ -105,7 +105,7 @@ TableOptionBdSet(clientData, interp, tkwin, value, widgRec, offset)
 	bordersPtr	= &(tagPtr->borders);
 	bdPtr		= tagPtr->bd;
     } else {
-      Tcl_PanicVA("invalid type given to TableOptionBdSet\n",NULL);
+      Tcl_Panic("invalid type given to TableOptionBdSet\n");
 	return TCL_ERROR; /* lint */
     }
 
@@ -188,7 +188,7 @@ TableOptionBdGet(clientData, tkwin, widgRec, offset, freeProcPtr)
     } else if (type == BD_TABLE_WIN) {
 	return ((TableEmbWindow *) widgRec)->borderStr;
     } else {
-      Tcl_PanicVA("invalid type given to TableOptionBdSet\n",NULL);
+      Tcl_Panic("invalid type given to TableOptionBdSet\n");
 	return NULL; /* lint */
     }
 }

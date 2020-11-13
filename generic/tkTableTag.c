@@ -212,7 +212,7 @@ TableResetTag(Table *tablePtr, TableTag *tagPtr)
     TableJoinTag *jtagPtr = (TableJoinTag *) tagPtr;
 
     if (jtagPtr->magic != 0x99ABCDEF) {
-      Tcl_PanicVA("bad mojo in TableResetTag",NULL);
+      Tcl_Panic("bad mojo in TableResetTag");
     }
 
     memset((VOID *) jtagPtr, 0, sizeof(TableJoinTag));
@@ -269,7 +269,7 @@ TableMergeTag(Table *tablePtr, TableTag *baseTag, TableTag *addTag)
     unsigned int prio;
 
     if (jtagPtr->magic != 0x99ABCDEF) {
-      Tcl_PanicVA("bad mojo in TableMergeTag",NULL);
+      Tcl_Panic("bad mojo in TableMergeTag");
     }
 
 #ifndef NO_TAG_PRIORITIES
@@ -432,7 +432,7 @@ TableGetTagBorders(TableTag *tagPtr,
 	    if (bottom)	{ *bottom	= tagPtr->bd[3]; }
 	    break;
 	default:
-	    Tcl_PanicVA("invalid border value '%d'\n", tagPtr->borders);
+	    Tcl_Panic("invalid border value '%d'\n", tagPtr->borders);
 	    break;
     }
     return tagPtr->borders;
